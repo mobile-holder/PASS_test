@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import ShadowBox from '../components/ShadowBox';
+import CardBox from '../components/CardBox';
 import QrButton from '../components/QrButton';
 import Header from '../components/headers/Header';
 import { theme } from '../colors/Theme';
-import BackAlert from '../components/BackAlert';
 
 const Container = styled.View`
     flex : 1;
@@ -19,25 +18,25 @@ const View = styled.View`
     
     `;
 
-    const BlankCardPage = ({ navigation, route, props }) => {
-        const userDID = route.params.userDID;
+    const CardPage = ({ navigation, route, props }) => {
         const userID = route.params.userID;
-    
-        BackAlert(" ");
-
+        
         return (
             <Container>
-                <Header nonMenu='nonMenu'/>
+                <Header/>
                 <View>
-                    <ShadowBox
-                        title={userDID}
-                        onPress={() => navigation.push('AddCardPage', {userDID:`${userDID}`})}
+                    <CardBox
+                        userID={`${userID}`}
+                        //onPress={() => navigation.navigate('AddCardPage', {userName:`${userName}`})}
                     >
-                    </ShadowBox>
+                    </CardBox>
                 </View>
                 <View>
                     <QrButton
                         title={'QR 생성'}
+                        userID={`${userID}`}
+                        //userDID={userDID}
+                        onPress={() => navigation.navigate('QRPage', {userID:`${userID}`})}
                     >
                     </QrButton>
                 </View>
@@ -45,4 +44,4 @@ const View = styled.View`
         );
     };
     
-    export default BlankCardPage;
+    export default CardPage;

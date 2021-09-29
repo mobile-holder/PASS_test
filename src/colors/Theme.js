@@ -10,6 +10,7 @@ export const theme = {
     blue600 : '#0066ff',
 
     mono100 : '#ffffff',
+    mono150 : '#f5f5f5',
     mono200 : '#f1f1f1',
     mono400 : '#c2c2c2',
     mono700 : '#717171',
